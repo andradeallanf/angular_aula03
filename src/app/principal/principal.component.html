@@ -1,0 +1,26 @@
+<form [formGroup] = "formulario">
+    <input type="text"   formControlName="produto"  placeholder="Produto">
+    <input type="text"   formControlName="marca"    placeholder="Marca">
+    <input type="number" formControlName="valor"    placeholder="Valor">
+    <input type="button" (click)="cadastrarProduto()" value="Cadastrar">
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Produto</th>
+            <th>Marca</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let v of vetor; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{v.produto | uppercase }}</td>
+            <td>{{v.marca | lowercase}}</td>
+            <td>{{v.valor | formatarPreco}}</td>
+            <!-- <td>{{v.valor | currency: 'BRL'}}</td>-->
+        </tr>
+    </tbody>
+</table>
